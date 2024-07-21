@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProtivitiTest.WebAPI", "ProtivitiTest.WebAPI\ProtivitiTest.WebAPI.csproj", "{4C576665-1FF9-4E83-AC94-DCB2020AA90D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtivitiTest.WebAPI.Tests", "ProtivitiTest.WebAPI.Tests\ProtivitiTest.WebAPI.Tests.csproj", "{F87E251D-AB58-41B4-908C-8B3E6C182454}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C576665-1FF9-4E83-AC94-DCB2020AA90D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C576665-1FF9-4E83-AC94-DCB2020AA90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C576665-1FF9-4E83-AC94-DCB2020AA90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C576665-1FF9-4E83-AC94-DCB2020AA90D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F87E251D-AB58-41B4-908C-8B3E6C182454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F87E251D-AB58-41B4-908C-8B3E6C182454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F87E251D-AB58-41B4-908C-8B3E6C182454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F87E251D-AB58-41B4-908C-8B3E6C182454}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B603732F-9E36-47BA-9025-A1FBDE589CC4}
+	EndGlobalSection
+EndGlobal
