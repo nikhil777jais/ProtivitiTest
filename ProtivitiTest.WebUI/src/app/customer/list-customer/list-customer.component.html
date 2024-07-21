@@ -1,0 +1,39 @@
+<div *ngIf="customers; else elseBlock;">
+    <div class="alert alert-info text-center text-dark mt-3 py-2" role="alert">
+        <span>Customer Present in Database</span>
+        
+    </div>
+    <table class="table table-dark border-primary table-striped table-hover align-middle table-bordered">
+        <thead class="table-primary">
+            <tr class="text-center" >
+                <th width=15% scope="col">SR.No.</th>
+                <th width=8% scope="col">Avatar</th>
+                <th width=27% scope="col">Id</th>
+                <th width=15% scope="col">Full Name</th>
+                <th width=15% scope="col">Date Of Birth</th>
+                <th width=10% scope="col">Created On</th>
+                <th width=10% scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" *ngFor="let customer of customers; let i = index">
+                <td class="py-1" width=15%>{{ i+1}}</td>
+                <td class="py-1" width=8%>
+                    <svg [innerHTML]="customer.avatar | svg" width="64px" height="64px"></svg>                    
+                </td>
+                <td class="py-1" width=27%>{{ customer.id}}</td>
+                <td class="py-1" width=15%>{{ customer.fullName}}</td>
+                <td class="py-1" width=15%>{{ customer.dateOfBirth}}</td>
+                <td class="py-1" width=10%>{{ customer.createdOn}}</td>
+                <td class="py-1" width=10%>
+                    <a class="btn btn-sm btn-warning" (click)="onEdit(i)" >Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #elseBlock>
+    <div class="alert alert-danger text-center text-dark mt-3 py-2" role="alert">
+        Currently there is no data available.
+    </div>
+</ng-template>

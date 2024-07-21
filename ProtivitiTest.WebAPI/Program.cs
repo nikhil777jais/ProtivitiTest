@@ -24,12 +24,31 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//using (var scope = app.CreateScope())
-//{
-//    var context = scope.ServiceProvider.GetRequiredService<SqliteDbContext>();
-//    context.Database.OpenConnection();
-//    context.Database.EnsureCreated();
-//}
+app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4300"));
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<SqliteDbContext>();
+    context.Database.EnsureDeleted();
+    context.Database.EnsureCreated();
+}
+
+#region sqlite Db Migration at runtime
+/*
+ var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+try
+{
+    var context = services.GetRequiredService<SqliteDbContext>();
+    await context.Database.MigrateAsync();
+}
+catch (Exception ex)
+{
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "An error occurred during migration");
+
+}*/
+#endregion
 
 app.UseHttpsRedirection();
 

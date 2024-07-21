@@ -74,12 +74,12 @@ namespace ProtivitiTest.WebAPI.Tests.Controllers
         [Fact]
         public async Task GetCustomersAge_ReturnsOk_ForExistingCustomers()
         {
-            // Arrangez
+            // Arrange
             var expectedAge = 20;
             var mockCustomerDtos = new List<CustomerDto>
             {
                 new CustomerDto { Id = mockCustomers[0].Id, FullName = "John Doe", DateOfBirth = new DateOnly(2004, 1, 1), Avatar = "avatar1.png" },
-                new CustomerDto { Id = mockCustomers[1].Id, FullName = "Jane Doe", DateOfBirth = new DateOnly(1992, 2, 2), Avatar = "avatar2.png" }
+                new CustomerDto { Id = mockCustomers[1].Id, FullName = "Jane Doe", DateOfBirth = new DateOnly(2004, 2, 2), Avatar = "avatar2.png" }
             };
 
             _mockCustomerRepo.Setup(repo => repo.GetAllCustomerByAge(expectedAge))
@@ -94,7 +94,7 @@ namespace ProtivitiTest.WebAPI.Tests.Controllers
             Assert.NotNull(okResult);
             var customerDtos = okResult.Value as IEnumerable<CustomerDto>;
             Assert.NotNull(customerDtos);
-            Assert.Equal(customerDtos.Count, customerDtos.Count()); // Verify number of customers
+            Assert.Equal(mockCustomerDtos.Count(), customerDtos.Count()); // Verify number of customers
         }
     }
 }

@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center mt-4 header">
+            <div >
+                <h5 class="mx-1">Fill this form to add customer</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+            <div class="container-fluid form-div">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="FullName" class="form-label">Full Name</label>
+                        <input type="text" formControlName="fullName" id="FullName" class="form-control" />
+                        <div *ngIf="!customerForm.get('fullName')?.valid && customerForm.get('fullName')?.touched">
+                            <span *ngIf="customerForm.get('fullName')?.errors?.['required']"><small class="text-warning">Full Name is required</small></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="DateOfBirth" class="form-label">Date Of Birth</label>
+                        <input type="date" formControlName="dateOfBirth" id="DateOfBirth" class="form-control" />
+                        <div *ngIf="!customerForm.get('dateOfBirth')?.valid && customerForm.get('dateOfBirth')?.touched">
+                            <span *ngIf="customerForm.get('dateOfBirth')?.errors?.['required']"><small class="text-warning">Date Of Birth is required</small></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2 button-div">
+                    <div class="example-button-row">
+                        <input type="submit" value="Add Customer" [disabled]="!customerForm.valid" class="btn btn-success mt-2" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

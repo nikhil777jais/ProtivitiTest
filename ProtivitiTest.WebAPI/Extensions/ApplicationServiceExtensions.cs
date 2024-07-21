@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using ProtivitiTest.WebAPI.Data;
 using ProtivitiTest.WebAPI.Repositories.CustomerRepo;
 using ProtivitiTest.WebAPI.Services.AvatarService;
+using Microsoft.Data.Sqlite;
+using System;
 
 namespace ProtivitiTest.WebAPI.Extensions
 {
@@ -11,16 +13,16 @@ namespace ProtivitiTest.WebAPI.Extensions
         public static IServiceCollection AddApplicationService(this IServiceCollection services, IConfiguration config)
         {
             #region configure db
-            
-            services.AddDbContext<SqliteDbContext>(options =>
-            {
-                options.UseSqlite(config.GetConnectionString("SqlLiteConnection"));
-            });
+
+            var cnn = new SqliteConnection(config.GetConnectionString("SqlLiteConnection"));
+            cnn.Open();
+
+            services.AddDbContext<SqliteDbContext>(o => o.UseSqlite(cnn));
 
             #endregion
 
             #region injecting dependencies
-            
+
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddHttpClient<AvatarService>();
 

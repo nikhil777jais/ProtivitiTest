@@ -43,7 +43,7 @@ namespace ProtivitiTest.WebAPI.Repositories.CustomerRepo
         {
             try
             {
-                return await _context.Customers.ProjectTo<CustomerDto>(_mapper.ConfigurationProvider).ToListAsync();
+                return await _context.Customers.ProjectTo<CustomerDto>(_mapper.ConfigurationProvider).OrderByDescending(c => c.CreatedOn).ToListAsync();
             }
             catch (Exception ex)
             {
@@ -58,7 +58,7 @@ namespace ProtivitiTest.WebAPI.Repositories.CustomerRepo
                 var today = DateOnly.FromDateTime(DateTime.Today);
                 var customers = await _context.Customers
                     .Where(c => today.Year - c.DateOfBirth.Year == age)
-                    .ProjectTo<CustomerDto>(_mapper.ConfigurationProvider).ToListAsync();
+                    .ProjectTo<CustomerDto>(_mapper.ConfigurationProvider).OrderByDescending(c => c.CreatedOn).ToListAsync();
                 return customers;
             }
             catch (Exception ex)
