@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Customer } from '../models/customer';
+import { UpdateParams } from '../models/update-customer';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { BehaviorSubject, throwError } from 'rxjs';
 
@@ -27,7 +28,7 @@ export class CustomerService {
 	}
 
 	getCustomerById(id: string) {
-		return this.http.get<Customer[]>(
+		return this.http.get<Customer>(
 			environment.apiUrl + '/api/customers/' + id
 		).pipe(
 			catchError(error => {
@@ -53,6 +54,17 @@ export class CustomerService {
 				fullName: customer.fullName,
 				dateOfBirth: customer.dateOfBirth
 			}
+		).pipe(
+			catchError(error => {
+				return throwError(error);
+			})
+		)
+	}
+
+	updateCustomer(customerUpdateParams: UpdateParams[], id: string) {
+		return this.http.patch<Customer>(
+			environment.apiUrl + '/api/customers/'+id,
+			customerUpdateParams
 		).pipe(
 			catchError(error => {
 				return throwError(error);

@@ -7,6 +7,7 @@ import { ListCustomerComponent } from './list-customer/list-customer.component';
 import { CustomerComponent } from './customer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SvgPipe } from './svg.pipe';
+import { UpdateCustomerComponent } from './update-customer/update-customer.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SvgPipe } from './svg.pipe';
     AddCustomerComponent,
     ListCustomerComponent,
     CustomerComponent,
-    SvgPipe
+    SvgPipe,
+    UpdateCustomerComponent,
   ],
   imports: [
     CommonModule,

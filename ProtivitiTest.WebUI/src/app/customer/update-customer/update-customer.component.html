@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center mt-4 header">
+            <div >
+                <h5 class="mx-1">Fill this form to add customer</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form [formGroup]="upadteCustomerForm" (ngSubmit)="onUpadte()">
+                <div class="container-fluid form-div">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="FullName" class="form-label">Full Name</label>
+                            <input type="text" formControlName="fullName" id="FullName" class="form-control" />
+                            <div *ngIf="!upadteCustomerForm.get('fullName')?.valid && upadteCustomerForm.get('fullName')?.touched">
+                                <span *ngIf="upadteCustomerForm.get('fullName')?.errors?.['required']"><small class="text-warning">Full Name is required</small></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="DateOfBirth" class="form-label">Date Of Birth</label>
+                            <input type="date" formControlName="dateOfBirth" id="DateOfBirth" class="form-control" />
+                            <div *ngIf="!upadteCustomerForm.get('dateOfBirth')?.valid && upadteCustomerForm.get('dateOfBirth')?.touched">
+                                <span *ngIf="upadteCustomerForm.get('dateOfBirth')?.errors?.['required']"><small class="text-warning">Date Of Birth is required</small></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2 button-div">
+                        <div class="example-button-row">
+                            <input type="submit" value="Upadte Customer" [disabled]="!upadteCustomerForm.valid" class="btn btn-warning mt-2" />
+                            <a class="btn btn-danger mx-3 mt-2" [routerLink]="'/customer'" >Cancle</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Customer Deatils</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{custmer.fullName}}</h6>
+                  <p class="card-text">{{custmer.id}}</p>
+                  <p>
+                    <svg [innerHTML]="custmer.avatar | svg" width="64px" height="64px"></svg>
+                  </p>
+                  <a class="card-link">{{custmer.dateOfBirth}}</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
