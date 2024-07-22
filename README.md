@@ -1,7 +1,7 @@
 # ProtivitiTest.WebAPI And ProtivitiTest.UI
 
 - Builded a C# AspNetCore REST API, with an in-memory SQLite DB. Using .net 7.0.
--Builded Sigle page application for the API using Angular.
+- Builded Sigle page application for the API using Angular.
 
 ## Features 
 
