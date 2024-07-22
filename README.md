@@ -1,6 +1,7 @@
-# ProtivitiTest.WebAPI
+# ProtivitiTest.WebAPI && ProtivitiTest.UI
 
 Builded a C# AspNetCore REST API, with an in-memory SQLite DB. Using .net 7.0.
+Builded Sigle page application for the API using Angular.
 
 ## Features 
 
@@ -22,9 +23,9 @@ Builded a C# AspNetCore REST API, with an in-memory SQLite DB. Using .net 7.0.
 - **Entity Framework Core:** The ORM tool for data access and manipulation.
 - **AutoMapper:** Simplifies object-to-object mapping.
 
-## Getting Started
+## Getting Started - ProtivitiTest.WebAPI
 
-To get started with the Academy Portal project, follow these steps:
+To get started with the ProtivitiTest.WebAPI  project, follow these steps:
 
 1. Clone the repository:
 
@@ -35,7 +36,7 @@ To get started with the Academy Portal project, follow these steps:
 2. Navigate to the project directory:
 
     ```bash
-    cd ProtivitiTest
+    cd ProtivitiTest.ProtivitiTest.WebAPI
     ```
 3. Build and run the application:
 
@@ -44,7 +45,38 @@ To get started with the Academy Portal project, follow these steps:
     dotnet run
     ```
 
-7. Open your web browser and visit [https://localhost:7103](https://localhost:7103) to access the WebAPI.
+4. Open your web browser and visit [https://localhost:7103](https://localhost:7103) to access the WebAPI.
+
+## Getting Started -  ProtivitiTest.WebUI
+
+1. Requiremeent for angular application:
+    ```bash
+        Angular CLI: 16.0.6
+        Node: 18.16.1
+        Package Manager: npm 9.5.1
+    ```
+    
+3. Navigate to the project directory
+
+    ```bash
+    cd ProtivitiTest.ProtivitiTest.WebUI
+    ```
+4. Install packegs
+    ```bash
+    npm install
+    ```
+5. run angualar application
+     ```bash
+    ng serve --port 4300
+    ```
+
+6. Open your web browser and visit [https://localhost:4300](https://localhost:4300) to access the WebUI.
 
 ## ShnapShots
 ![image](https://github.com/user-attachments/assets/c973863f-ee1c-419f-b968-7a192f7ee037)
+![image](https://github.com/user-attachments/assets/2b5b1c32-466f-491b-bd51-59a6e7c9ad83)
+![image](https://github.com/user-attachments/assets/c4fb1fa5-8e6a-408d-95ef-46351d115f39)
+![image](https://github.com/user-attachments/assets/0e48383e-afd5-437d-b082-5db7e027a65e)
+
+
+
